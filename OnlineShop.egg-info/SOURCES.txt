@@ -1,0 +1,9 @@
+README.md
+setup.py
+OnlineShop/__init__.py
+OnlineShop/dbaccess.py
+OnlineShop.egg-info/PKG-INFO
+OnlineShop.egg-info/SOURCES.txt
+OnlineShop.egg-info/dependency_links.txt
+OnlineShop.egg-info/requires.txt
+OnlineShop.egg-info/top_level.txt

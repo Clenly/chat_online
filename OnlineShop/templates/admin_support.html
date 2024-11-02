@@ -1,0 +1,48 @@
+<!-- admin_support.html -->
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Acme|K2D" rel="stylesheet">
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>OnLineShop - Повідомлення підтримки</h1>
+  </div>
+  
+  <div class="admin-messages">
+    <h2>Повідомлення користувачів</h2>
+    <div id="messages">
+      {% for message in messages %}
+        <div class="message">
+          <strong>Ім'я: {{ message.name }}</strong> ({{ message.email }})<br>
+          <p>{{ message.message }}</p>
+          <hr>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+      function fetchMessages() {
+          fetch("{{ url_for('view_support_messages') }}")
+          .then(response => response.json())
+          .then(data => {
+              const messagesDiv = document.getElementById("messages");
+              messagesDiv.innerHTML = '';
+              data.forEach(msg => {
+                  messagesDiv.innerHTML += `
+                      <div class="message">
+                          <strong>Ім'я: ${msg.name}</strong> (${msg.email})<br>
+                          <p>${msg.message}</p>
+                          <hr>
+                      </div>
+                  `;
+              });
+          });
+      }
+
+      setInterval(fetchMessages, 5000); // Оновлення кожні 5 секунд
+  </script>
+</body>
+</html>
