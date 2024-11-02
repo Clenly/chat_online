@@ -5,4 +5,4 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app # Змініть 'app:app' на ім'я вашого файлу та змініть назву додатку
+    startCommand: gunicorn OnlineShop:app
