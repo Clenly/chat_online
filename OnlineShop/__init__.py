@@ -9,6 +9,7 @@ import os
 app = Flask(__name__)
 sess = Session()
 app.config["SECRET_KEY"] = "hjhjsdahhds"
+app.config["SESSION_COOKIE_NAME"] = "my_custom_session"
 socketio = SocketIO(app)
 
 rooms = {}
