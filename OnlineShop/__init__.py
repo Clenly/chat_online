@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect, abort, session
 from flask_socketio import join_room, leave_room, send, SocketIO
 from flask_session import Session
-from OnlineShop.dbaccess import *
+from dbaccess import *
 import random
 from string import ascii_uppercase
 import os
@@ -9,7 +9,6 @@ import os
 app = Flask(__name__)
 sess = Session()
 app.config["SECRET_KEY"] = "hjhjsdahhds"
-app.config["SESSION_COOKIE_NAME"] = "session_data"
 socketio = SocketIO(app)
 
 rooms = {}
